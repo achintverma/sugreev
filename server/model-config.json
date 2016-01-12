@@ -47,5 +47,9 @@
   "Activity": {
     "dataSource": "mongo",
     "public": true
+  },
+  "Post": {
+    "dataSource": "mongo",
+    "public": true
   }
 }
