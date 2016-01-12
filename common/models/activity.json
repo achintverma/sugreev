@@ -1,0 +1,45 @@
+{
+  "name": "Activity",
+  "plural": "activities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "activity_name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "hours_spent": {
+      "type": "number",
+      "required": true
+    },
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "task_id": {
+      "type": "string",
+      "required": true
+    },
+    "date_time": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tasks": {
+      "type": "belongsTo",
+      "model": "Tasks",
+      "foreignKey": "task_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Tasks",
+  "plural": "tasks",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "task_name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "estimated_hours": {
+      "type": "number",
+      "required": true
+    },
+    "deadline": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_hours_spent": {
+      "type": "number"
+    },
+    "project_id": {
+      "type": "string",
+      "required": true
+    },
+    "assignee_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "assignee_id"
+    },
+    "project": {
+      "type": "belongsTo",
+      "model": "Project",
+      "foreignKey": "project_id"
+    },
+    "activities": {
+      "type": "hasMany",
+      "model": "Activity",
+      "foreignKey": "task_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
